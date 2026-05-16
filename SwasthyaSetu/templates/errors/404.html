@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block public_content %}
+<div class="d-flex align-items-center justify-content-center min-vh-100" style="background:#f4f7fc;padding:30px;">
+  <div class="text-center">
+    <div style="font-size:7rem;">🚑</div>
+    <h1 class="fw-bold">404</h1>
+    <p class="text-muted">The page you're looking for has been admitted elsewhere.</p>
+    <a class="btn btn-primary" href="{{ url_for('index') }}">Back to home</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="section-title">States</h2>
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="card-soft">
+      <h5>Add New State</h5>
+      <form method="post">{{ form.hidden_tag() }}
+        <div class="mb-3">{{ form.name(class='form-control', placeholder='e.g. Karnataka') }}</div>
+        <button class="btn btn-primary w-100">Add State</button>
+      </form>
+      <a href="{{ url_for('manage_districts') }}" class="btn btn-soft mt-3 w-100">Manage Districts →</a>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card-soft">
+      <h5>Existing States</h5>
+      <table class="table"><thead><tr><th>Name</th><th>Districts</th><th></th></tr></thead>
+        <tbody>{% for s in states %}<tr><td>{{ s.name }}</td><td>{{ s.districts|length }}</td><td><a class="btn btn-sm btn-danger" href="{{ url_for('delete_state', state_id=s.id) }}" onclick="return confirm('Delete state and all its districts?')"><i class="bi bi-trash"></i></a></td></tr>{% else %}<tr><td colspan="3" class="text-muted text-center">No states.</td></tr>{% endfor %}</tbody></table>
+    </div>
+  </div>
+</div>
+{% endblock %}

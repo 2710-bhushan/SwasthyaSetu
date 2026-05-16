@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="section-title">Manage Patients</h2>
+<div class="card-soft">
+  <div class="table-responsive"><table class="table align-middle">
+    <thead><tr><th>Patient ID</th><th>Email</th><th>Name</th><th>Phone</th><th>Bookings</th><th></th></tr></thead>
+    <tbody>
+      {% for p in patients %}
+      <tr>
+        <td>{{ p.unique_id or '—' }}</td><td>{{ p.email }}</td>
+        <td>{{ p.patient_profile.full_name if p.patient_profile else '—' }}</td>
+        <td>{{ p.patient_profile.phone if p.patient_profile else '—' }}</td>
+        <td>{{ p.bookings|length }}</td>
+        <td><a class="btn btn-soft btn-sm" href="{{ url_for('admin_patient_detail', patient_id=p.id) }}"><i class="bi bi-eye"></i></a></td>
+      </tr>
+      {% else %}<tr><td colspan="6" class="text-center text-muted">No patients yet.</td></tr>{% endfor %}
+    </tbody>
+  </table></div>
+</div>
+{% endblock %}

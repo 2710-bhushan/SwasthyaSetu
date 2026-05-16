@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-md-7">
+    <div class="card-soft">
+      <h4 class="section-title">Hospital Profile</h4>
+      <form method="post">{{ form.hidden_tag() }}
+        <div class="mb-3"><label class="form-label">Hospital Name</label>{{ form.hospital_name(class='form-control') }}</div>
+        <div class="mb-3"><label class="form-label">Contact Number</label>{{ form.contact_number(class='form-control') }}</div>
+        <div class="mb-3"><label class="form-label">District</label>{{ form.district_id(class='form-select') }}</div>
+        <div class="mb-3"><label class="form-label">Address</label>{{ form.address(class='form-control', rows=2) }}</div>
+        <div class="mb-3"><label class="form-label">Description</label>{{ form.description(class='form-control', rows=2) }}</div>
+        <div class="row g-2 mb-3">
+          <div class="col-6"><label class="form-label">Latitude</label>{{ form.latitude(class='form-control') }}</div>
+          <div class="col-6"><label class="form-label">Longitude</label>{{ form.longitude(class='form-control') }}</div>
+        </div>
+        <button class="btn btn-primary w-100">Save</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card-soft">
+      <h4 class="section-title">Account</h4>
+      <p><b>Email:</b> {{ user.email }}</p>
+      <p><b>Hospital ID:</b> {{ user.unique_id }}</p>
+      <p><b>Approved:</b> {{ 'Yes' if user.is_approved else 'Pending' }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

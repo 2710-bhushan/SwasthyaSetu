@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="section-title">Email Detail</h2>
+<div class="card-soft">
+  <p><b>To:</b> {{ log.recipient }}<br><b>Subject:</b> {{ log.subject }}<br><b>Sent:</b> {{ log.sent_at.strftime('%Y-%m-%d %H:%M') }}</p>
+  <hr>
+  <div style="background:#f4f7fc;padding:14px;border-radius:12px;max-height:600px;overflow:auto;">{{ log.full_html|safe }}</div>
+  <a href="{{ url_for('admin_emails') }}" class="btn btn-soft mt-3"><i class="bi bi-arrow-left"></i> Back to logs</a>
+</div>
+{% endblock %}

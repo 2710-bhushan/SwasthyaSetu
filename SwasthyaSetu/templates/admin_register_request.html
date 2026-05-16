@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block public_content %}
+<div class="d-flex align-items-center justify-content-center min-vh-100" style="background:#f4f7fc;padding:30px 14px;">
+  <div class="card-soft" style="max-width:440px;width:100%;">
+    <h4 class="section-title">Admin Registration — Step 1</h4>
+    <p class="text-muted small">Enter your email and we'll send a one-time password.</p>
+    <form method="post">{{ form.hidden_tag() }}
+      <div class="mb-3"><label class="form-label">Email</label>{{ form.email(class='form-control') }}</div>
+      <button class="btn btn-primary w-100">Send OTP</button>
+    </form>
+    <div class="text-center mt-3"><a href="{{ url_for('login') }}" class="small text-muted">Back to login</a></div>
+  </div>
+</div>
+{% endblock %}

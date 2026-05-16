@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="card-soft">
+      <h4 class="section-title">My Profile</h4>
+      <form method="post">{{ form.hidden_tag() }}
+        <div class="mb-3"><label class="form-label">Full Name</label>{{ form.full_name(class='form-control') }}</div>
+        <div class="mb-3"><label class="form-label">Phone</label>{{ form.phone(class='form-control') }}</div>
+        <div class="mb-3"><label class="form-label">Address</label>{{ form.address(class='form-control', rows=2) }}</div>
+        <div class="row g-2 mb-3">
+          <div class="col-6"><label class="form-label">Blood Group</label>{{ form.blood_group(class='form-control') }}</div>
+          <div class="col-6"><label class="form-label">Emergency Contact</label>{{ form.emergency_contact(class='form-control') }}</div>
+        </div>
+        <button class="btn btn-primary w-100">Save</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card-soft">
+      <h4 class="section-title">Account</h4>
+      <p><b>Email:</b> {{ user.email }}</p>
+      <p><b>Patient ID:</b> {{ user.unique_id }}</p>
+      <p><b>Joined:</b> {{ user.created_at.strftime('%Y-%m-%d') }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
