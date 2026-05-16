@@ -5,6 +5,8 @@ A full-stack Flask web application for smart healthcare management with real-tim
 **Tagline:** Real-Time Hospital Availability Platform
 
 ---
+## Live Project :- 
+    - Visit <https://swasthyasetu.pythonanywhere.com/>
 
 ## Features
 
